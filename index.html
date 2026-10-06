@@ -1,0 +1,2487 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>طالب ثانوي | المنصة الرقمية</title>
+
+<meta name="description" content="طالب ثانوي - منصة رقمية متكاملة لطلاب المرحلة الثانوية في مصر">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+:root{
+    --bg:#041914;
+    --bg2:#07251d;
+    --green:#0b3b2d;
+    --green2:#105542;
+    --gold:#d7b15c;
+    --gold2:#f2d991;
+    --text:#f7f8f6;
+    --muted:#aabcb6;
+    --card:rgba(255,255,255,.055);
+    --line:rgba(215,177,92,.20);
+    --shadow:0 25px 70px rgba(0,0,0,.32);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Cairo',sans-serif;
+    background:
+        radial-gradient(circle at 10% 0%,rgba(215,177,92,.10),transparent 25%),
+        radial-gradient(circle at 90% 100%,rgba(15,100,75,.16),transparent 30%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+button,a{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    height:76px;
+    z-index:999;
+    background:rgba(3,19,14,.88);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(215,177,92,.14);
+}
+
+.topbar-inner{
+    max-width:1500px;
+    height:100%;
+    margin:auto;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    min-width:210px;
+}
+
+.logo-symbol{
+    width:45px;
+    height:45px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+    color:#14271f;
+    font-size:22px;
+    box-shadow:0 10px 30px rgba(215,177,92,.18);
+}
+
+.logo-title{
+    font-size:18px;
+    font-weight:900;
+}
+
+.logo-sub{
+    color:var(--muted);
+    font-size:9px;
+}
+
+.top-nav{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    flex:1;
+    justify-content:center;
+}
+
+.top-nav button{
+    background:transparent;
+    border:0;
+    color:#bdcbc7;
+    font-size:12px;
+    font-weight:700;
+    padding:10px 11px;
+    border-radius:12px;
+    transition:.25s;
+}
+
+.top-nav button:hover,
+.top-nav button.active{
+    background:rgba(215,177,92,.09);
+    color:var(--gold2);
+}
+
+.official-logos{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.official-logos img{
+    width:45px;
+    height:45px;
+    object-fit:contain;
+    background:#fff;
+    border-radius:12px;
+    padding:4px;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app{
+    max-width:1500px;
+    margin:auto;
+    padding:100px 24px 100px;
+}
+
+.page{
+    display:none;
+    animation:showPage .35s ease;
+}
+
+.page.active{
+    display:block;
+}
+
+@keyframes showPage{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:610px;
+    position:relative;
+    overflow:hidden;
+    border-radius:36px;
+    border:1px solid var(--line);
+    background:
+        linear-gradient(135deg,rgba(5,35,26,.95),rgba(10,69,52,.90));
+    box-shadow:var(--shadow);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    isolation:isolate;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(4,25,18,.25),
+            rgba(4,25,18,.12)
+        ),
+        url("1000143326.png") center 78% / min(570px,78vw) auto no-repeat;
+    opacity:.47;
+    z-index:-1;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:620px;
+    height:620px;
+    border-radius:50%;
+    border:1px solid rgba(215,177,92,.13);
+    box-shadow:
+        0 0 0 35px rgba(215,177,92,.025),
+        0 0 0 70px rgba(215,177,92,.018);
+    left:50%;
+    top:53%;
+    transform:translate(-50%,-50%);
+    z-index:-1;
+}
+
+.hero-content{
+    max-width:900px;
+    padding:40px 20px 20px;
+}
+
+.hero-badge{
+    display:inline-flex;
+    padding:8px 17px;
+    border:1px solid rgba(215,177,92,.28);
+    background:rgba(255,255,255,.055);
+    border-radius:30px;
+    color:var(--gold2);
+    font-size:11px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,82px);
+    font-weight:900;
+    line-height:1.05;
+}
+
+.hero h1 span{
+    color:var(--gold2);
+}
+
+.hero p{
+    color:#d3ddda;
+    max-width:750px;
+    margin:18px auto 0;
+    line-height:2;
+    font-size:14px;
+}
+
+.hero-actions{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border-radius:14px;
+    padding:13px 21px;
+    border:1px solid rgba(215,177,92,.30);
+    font-size:12px;
+    font-weight:800;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn-primary{
+    color:#15261f;
+    background:linear-gradient(135deg,var(--gold),var(--gold2));
+}
+
+.btn-glass{
+    color:#fff;
+    background:rgba(255,255,255,.10);
+    backdrop-filter:blur(8px);
+}
+
+.btn-outline{
+    color:var(--gold2);
+    background:transparent;
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-head{
+    margin:52px 0 22px;
+}
+
+.section-head small{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:800;
+}
+
+.section-head h2{
+    font-size:31px;
+    margin-top:3px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:17px;
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+    padding:23px;
+    border-radius:23px;
+    border:1px solid rgba(255,255,255,.065);
+    background:var(--card);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(215,177,92,.30);
+    box-shadow:0 18px 45px rgba(0,0,0,.20);
+}
+
+.card-icon{
+    width:52px;
+    height:52px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    background:rgba(215,177,92,.10);
+    color:var(--gold2);
+    font-size:23px;
+    margin-bottom:16px;
+}
+
+.card h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.9;
+}
+
+.card-link{
+    display:inline-flex;
+    margin-top:16px;
+    color:var(--gold2);
+    font-size:11px;
+    font-weight:800;
+}
+
+/* =========================
+   CLASS SELECTOR
+========================= */
+
+.class-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.class-card{
+    position:relative;
+    min-height:240px;
+    border-radius:27px;
+    padding:27px;
+    overflow:hidden;
+    border:1px solid rgba(215,177,92,.16);
+    background:
+        linear-gradient(145deg,rgba(14,75,57,.70),rgba(255,255,255,.035));
+    transition:.3s;
+}
+
+.class-card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(215,177,92,.40);
+}
+
+.class-number{
+    font-size:50px;
+    font-weight:900;
+    color:rgba(215,177,92,.22);
+    position:absolute;
+    left:20px;
+    top:5px;
+}
+
+.class-card h3{
+    position:relative;
+    font-size:23px;
+    margin-top:30px;
+}
+
+.class-card p{
+    position:relative;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.9;
+    margin-top:8px;
+}
+
+.class-actions{
+    position:relative;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+/* =========================
+   PATHS
+========================= */
+
+.path-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.path{
+    padding:24px;
+    border-radius:23px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.07);
+}
+
+.path h3{
+    color:var(--gold2);
+    margin-bottom:8px;
+}
+
+.path p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.9;
+}
+
+.subjects{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:15px;
+}
+
+.subject{
+    padding:6px 9px;
+    border-radius:8px;
+    background:rgba(215,177,92,.08);
+    color:#d8c48b;
+    font-size:10px;
+}
+
+/* =========================
+   LIBRARY
+========================= */
+
+.library-hero{
+    padding:34px;
+    border-radius:28px;
+    border:1px solid var(--line);
+    background:
+        linear-gradient(135deg,rgba(11,69,52,.88),rgba(5,31,23,.92));
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.library-hero h2{
+    font-size:31px;
+}
+
+.library-hero p{
+    max-width:760px;
+    color:#b9c8c3;
+    font-size:12px;
+    line-height:2;
+    margin-top:8px;
+}
+
+.library-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.library-card{
+    min-height:205px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.tag{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:8px;
+    background:rgba(215,177,92,.08);
+    color:var(--gold2);
+    font-size:9px;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+/* =========================
+   INFORMATION
+========================= */
+
+.info{
+    padding:28px;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.07);
+    background:rgba(255,255,255,.04);
+}
+
+.info h3{
+    color:var(--gold2);
+    margin-bottom:10px;
+}
+
+.info p{
+    color:#c8d3cf;
+    font-size:13px;
+    line-height:2.1;
+}
+
+.info-list{
+    display:grid;
+    gap:10px;
+    margin-top:15px;
+}
+
+.info-list div{
+    padding:13px 15px;
+    background:rgba(0,0,0,.15);
+    border-radius:12px;
+    border-right:3px solid var(--gold);
+    color:#cbd5d2;
+    font-size:12px;
+}
+
+/* =========================
+   EXAMS
+========================= */
+
+.exam-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.exam{
+    padding:24px;
+    border-radius:23px;
+    border:1px solid rgba(255,255,255,.07);
+    background:rgba(255,255,255,.045);
+}
+
+.exam p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.9;
+    margin:9px 0 18px;
+}
+
+/* =========================
+   SOURCES
+========================= */
+
+.sources{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+
+.source{
+    padding:21px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:20px;
+    background:rgba(255,255,255,.045);
+}
+
+.source-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.source-icon{
+    width:46px;
+    height:46px;
+    border-radius:13px;
+    display:grid;
+    place-items:center;
+    background:rgba(215,177,92,.10);
+    font-size:20px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:17px;
+}
+
+.about-box{
+    padding:30px;
+    border-radius:25px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.04);
+}
+
+.about-box h2{
+    color:var(--gold2);
+    margin-bottom:12px;
+}
+
+.about-box p{
+    color:#c8d2cf;
+    font-size:13px;
+    line-height:2;
+}
+
+.names{
+    display:grid;
+    gap:9px;
+    margin-top:18px;
+}
+
+.names div{
+    padding:12px 14px;
+    border-radius:11px;
+    background:rgba(0,0,0,.14);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    margin-top:70px;
+    padding:30px 15px 10px;
+    border-top:1px solid rgba(255,255,255,.07);
+    text-align:center;
+    color:#93a59f;
+    font-size:10px;
+    line-height:2.2;
+}
+
+.footer strong{
+    color:var(--gold2);
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+
+    .top-nav button{
+        padding:9px 7px;
+        font-size:10px;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .class-grid,
+    .path-grid,
+    .library-grid,
+    .exam-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:760px){
+
+    .topbar{
+        height:66px;
+    }
+
+    .topbar-inner{
+        padding:0 11px;
+    }
+
+    .top-nav{
+        display:none;
+    }
+
+    .logo-box{
+        min-width:auto;
+    }
+
+    .logo-symbol{
+        width:40px;
+        height:40px;
+    }
+
+    .logo-title{
+        font-size:15px;
+    }
+
+    .logo-sub{
+        display:none;
+    }
+
+    .official-logos img{
+        width:38px;
+        height:38px;
+    }
+
+    .app{
+        padding:85px 11px 90px;
+    }
+
+    .hero{
+        min-height:630px;
+        border-radius:27px;
+    }
+
+    .hero::before{
+        background-position:center 84%;
+        background-size:390px auto;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:12px;
+    }
+
+    .hero-actions{
+        display:grid;
+        grid-template-columns:1fr;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .grid,
+    .class-grid,
+    .path-grid,
+    .library-grid,
+    .exam-grid,
+    .sources,
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .library-hero{
+        display:block;
+        padding:25px;
+    }
+
+    .library-hero .btn{
+        margin-top:18px;
+    }
+
+    .mobile-nav{
+        position:fixed;
+        display:flex;
+        bottom:9px;
+        left:9px;
+        right:9px;
+        z-index:1000;
+        padding:7px;
+        border-radius:19px;
+        background:rgba(3,20,15,.93);
+        backdrop-filter:blur(18px);
+        border:1px solid rgba(215,177,92,.17);
+        box-shadow:0 18px 45px rgba(0,0,0,.35);
+    }
+
+    .mobile-nav button{
+        flex:1;
+        border:0;
+        background:transparent;
+        color:#9eafaa;
+        font-size:9px;
+        padding:6px 2px;
+        border-radius:12px;
+    }
+
+    .mobile-nav button.active{
+        background:rgba(215,177,92,.09);
+        color:var(--gold2);
+    }
+
+    .mobile-nav i{
+        display:block;
+        font-size:16px;
+        font-style:normal;
+    }
+
+    .section-head h2{
+        font-size:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="topbar">
+
+<div class="topbar-inner">
+
+    <div class="logo-box">
+
+        <div class="logo-symbol">🎓</div>
+
+        <div>
+            <div class="logo-title">طالب ثانوي</div>
+            <div class="logo-sub">المنصة الرقمية للطلاب</div>
+        </div>
+
+    </div>
+
+
+    <nav class="top-nav">
+
+        <button class="active" onclick="go('home',this)">
+            الرئيسية
+        </button>
+
+        <button onclick="go('student',this)">
+            نظام الطالب
+        </button>
+
+        <button onclick="go('classes',this)">
+            الصفوف
+        </button>
+
+        <button onclick="go('baccalaureate',this)">
+            البكالوريا
+        </button>
+
+        <button onclick="go('library',this)">
+            المكتبة
+        </button>
+
+        <button onclick="go('exams',this)">
+            الامتحانات
+        </button>
+
+        <button onclick="go('sources',this)">
+            المصادر
+        </button>
+
+    </nav>
+
+
+    <div class="official-logos">
+
+        <img src="1000143308.jpg"
+             alt="مديرية التربية والتعليم">
+
+        <img src="1000143306.jpg"
+             alt="تكنولوجيا التعليم">
+
+    </div>
+
+</div>
+
+</header>
+
+
+<main class="app">
+
+<!-- ==================================================
+     HOME
+================================================== -->
+
+<section id="home" class="page active">
+
+<div class="hero">
+
+<div class="hero-content">
+
+    <div class="hero-badge">
+        ✦ منصة رقمية مخصصة لطلاب المرحلة الثانوية
+    </div>
+
+    <h1>
+        طالب <span>ثانوي</span>
+    </h1>
+
+    <p>
+        بوابتك الرقمية للوصول إلى المصادر التعليمية الرسمية،
+        الكتب الإلكترونية، أنظمة الدراسة، مسارات البكالوريا،
+        نماذج الامتحانات وأهم الروابط التي يحتاج إليها طالب الثانوية.
+    </p>
+
+    <div class="hero-actions">
+
+        <button class="btn btn-primary"
+                onclick="go('classes')">
+            🎓 اختر صفك الدراسي
+        </button>
+
+        <button class="btn btn-glass"
+                onclick="go('library')">
+            📚 المكتبة الإلكترونية
+        </button>
+
+        <button class="btn btn-outline"
+                onclick="go('baccalaureate')">
+            🎓 البكالوريا المصرية
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<div class="section-head">
+    <small>STUDENT DASHBOARD</small>
+    <h2>ابدأ من هنا</h2>
+    <p>اختر القسم الذي تريد الوصول إليه.</p>
+</div>
+
+
+<div class="grid">
+
+<div class="card" onclick="go('classes')">
+
+    <div class="card-icon">🎓</div>
+
+    <h3>الصفوف الدراسية</h3>
+
+    <p>
+        اختر أولى أو ثانية أو ثالثة ثانوي
+        للوصول إلى النظام المناسب لك.
+    </p>
+
+    <span class="card-link">
+        اختيار الصف ←
+    </span>
+
+</div>
+
+
+<div class="card" onclick="go('library')">
+
+    <div class="card-icon">📚</div>
+
+    <h3>المكتبة الإلكترونية</h3>
+
+    <p>
+        الوصول إلى مكتبة وزارة التربية والتعليم
+        والمصادر الرسمية بدون تخزين الملفات داخل المنصة.
+    </p>
+
+    <span class="card-link">
+        فتح المكتبة ←
+    </span>
+
+</div>
+
+
+<div class="card" onclick="go('baccalaureate')">
+
+    <div class="card-icon">🏛️</div>
+
+    <h3>البكالوريا المصرية</h3>
+
+    <p>
+        تعرف على النظام والمسارات
+        وانتقل إلى المصادر الرسمية.
+    </p>
+
+    <span class="card-link">
+        استكشف النظام ←
+    </span>
+
+</div>
+
+
+<div class="card" onclick="go('exams')">
+
+    <div class="card-icon">📝</div>
+
+    <h3>الامتحانات والنماذج</h3>
+
+    <p>
+        نماذج ومصادر امتحانات رسمية
+        للطلاب.
+    </p>
+
+    <span class="card-link">
+        عرض النماذج ←
+    </span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     STUDENT SYSTEM
+================================================== -->
+
+<section id="student" class="page">
+
+<div class="section-head">
+
+    <small>STUDENT SYSTEM</small>
+
+    <h2>نظام الطالب</h2>
+
+    <p>
+        مركز الطالب داخل المنصة.
+    </p>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+
+    <div class="card-icon">🎯</div>
+
+    <h3>تحديد المرحلة</h3>
+
+    <p>
+        ابدأ باختيار الصف الدراسي
+        والمسار التعليمي المناسب.
+    </p>
+
+    <button class="btn btn-glass"
+            style="margin-top:18px;width:100%"
+            onclick="go('classes')">
+        اختيار الصف
+    </button>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">📚</div>
+
+    <h3>المصادر</h3>
+
+    <p>
+        جميع المصادر التعليمية داخل المنصة
+        تعتمد على روابط الجهات الرسمية.
+    </p>
+
+    <button class="btn btn-glass"
+            style="margin-top:18px;width:100%"
+            onclick="go('library')">
+        المكتبة
+    </button>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">📝</div>
+
+    <h3>التدريب</h3>
+
+    <p>
+        الوصول إلى النماذج الاسترشادية
+        ومصادر الامتحانات الرسمية.
+    </p>
+
+    <button class="btn btn-glass"
+            style="margin-top:18px;width:100%"
+            onclick="go('exams')">
+        الامتحانات
+    </button>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">🌐</div>
+
+    <h3>المصادر الرسمية</h3>
+
+    <p>
+        روابط مباشرة إلى الجهات الحكومية
+        التعليمية والتقنية.
+    </p>
+
+    <button class="btn btn-glass"
+            style="margin-top:18px;width:100%"
+            onclick="go('sources')">
+        المصادر
+    </button>
+
+</div>
+
+</div>
+
+
+<div class="section-head">
+    <small>SMART STUDENT</small>
+    <h2>طريقة استخدام المنصة</h2>
+</div>
+
+
+<div class="info">
+
+<div class="info-list">
+
+    <div>① اختر صفك الدراسي.</div>
+
+    <div>② إذا كان النظام يتطلب مسارًا، اختر المسار المناسب.</div>
+
+    <div>③ انتقل إلى المكتبة أو المصادر الرسمية.</div>
+
+    <div>④ استخدم نماذج الامتحانات للتدريب.</div>
+
+    <div>⑤ ارجع دائمًا للمصدر الرسمي عند وجود تحديث.</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     CLASSES
+================================================== -->
+
+<section id="classes" class="page">
+
+<div class="section-head">
+
+    <small>EDUCATIONAL LEVELS</small>
+
+    <h2>اختر صفك الدراسي</h2>
+
+    <p>
+        المنصة مخصصة لطلاب المرحلة الثانوية.
+    </p>
+
+</div>
+
+
+<div class="class-grid">
+
+
+<!-- FIRST -->
+
+<div class="class-card">
+
+    <div class="class-number">01</div>
+
+    <h3>أولى ثانوي</h3>
+
+    <p>
+        بوابة الطالب للصف الأول الثانوي
+        والمصادر التعليمية الرسمية.
+    </p>
+
+    <div class="class-actions">
+
+        <button class="btn btn-primary"
+                onclick="openClass('first')">
+            دخول الصف
+        </button>
+
+        <button class="btn btn-glass"
+                onclick="go('library')">
+            المكتبة
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- SECOND -->
+
+<div class="class-card">
+
+    <div class="class-number">02</div>
+
+    <h3>ثانية ثانوي</h3>
+
+    <p>
+        اختر مسارك ثم انتقل إلى
+        المصادر المناسبة.
+    </p>
+
+    <div class="class-actions">
+
+        <button class="btn btn-primary"
+                onclick="openClass('second')">
+            دخول الصف
+        </button>
+
+        <button class="btn btn-glass"
+                onclick="go('library')">
+            المكتبة
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- THIRD -->
+
+<div class="class-card">
+
+    <div class="class-number">03</div>
+
+    <h3>ثالثة ثانوي</h3>
+
+    <p>
+        اختر الشعبة والمسار ثم انتقل
+        إلى المصادر والنماذج الرسمية.
+    </p>
+
+    <div class="class-actions">
+
+        <button class="btn btn-primary"
+                onclick="openClass('third')">
+            دخول الصف
+        </button>
+
+        <button class="btn btn-glass"
+                onclick="go('library')">
+            المكتبة
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- CLASS CONTENT -->
+
+<div id="classContent" style="margin-top:35px;display:none"></div>
+
+</section>
+
+
+<!-- ==================================================
+     BACCALAUREATE
+================================================== -->
+
+<section id="baccalaureate" class="page">
+
+<div class="library-hero">
+
+<div>
+
+    <h2>🎓 البكالوريا المصرية</h2>
+
+    <p>
+        قسم خاص بنظام البكالوريا المصرية.
+        ستجد هنا تعريفًا مبسطًا وروابط للوصول
+        إلى المصادر الرسمية بدل تخزين الملفات داخل المنصة.
+    </p>
+
+</div>
+
+<a class="btn btn-primary"
+   href="https://moe.gov.eg/"
+   target="_blank"
+   rel="noopener">
+    وزارة التعليم ↗
+</a>
+
+</div>
+
+
+<div class="section-head">
+
+    <small>PATHS</small>
+
+    <h2>مسارات البكالوريا</h2>
+
+    <p>
+        اختر المسار للاطلاع على وصفه داخل المنصة.
+    </p>
+
+</div>
+
+
+<div class="path-grid">
+
+
+<div class="path">
+
+    <h3>🩺 مسار الطب وعلوم الحياة</h3>
+
+    <p>
+        مسار موجه للطلاب المهتمين
+        بالعلوم الطبية والحياتية.
+    </p>
+
+    <div class="subjects">
+        <span class="subject">علوم</span>
+        <span class="subject">أحياء</span>
+        <span class="subject">كيمياء</span>
+    </div>
+
+</div>
+
+
+<div class="path">
+
+    <h3>⚙️ مسار الهندسة وعلوم الحاسب</h3>
+
+    <p>
+        مسار مناسب للطلاب المهتمين
+        بالرياضيات والهندسة والتكنولوجيا.
+    </p>
+
+    <div class="subjects">
+        <span class="subject">رياضيات</span>
+        <span class="subject">فيزياء</span>
+        <span class="subject">تكنولوجيا</span>
+    </div>
+
+</div>
+
+
+<div class="path">
+
+    <h3>💼 مسار الأعمال</h3>
+
+    <p>
+        مسار يهتم بالاقتصاد والإدارة
+        والمجالات التجارية.
+    </p>
+
+    <div class="subjects">
+        <span class="subject">اقتصاد</span>
+        <span class="subject">إدارة</span>
+        <span class="subject">رياضيات</span>
+    </div>
+
+</div>
+
+
+<div class="path">
+
+    <h3>🌍 مسار الآداب والفنون</h3>
+
+    <p>
+        مسار يرتبط بالعلوم الإنسانية
+        واللغات والفنون.
+    </p>
+
+    <div class="subjects">
+        <span class="subject">لغات</span>
+        <span class="subject">تاريخ</span>
+        <span class="subject">فنون</span>
+    </div>
+
+</div>
+
+</div>
+
+
+<div class="section-head">
+    <small>OFFICIAL</small>
+    <h2>مصادر البكالوريا</h2>
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+
+    <div class="card-icon">🏛️</div>
+
+    <h3>وزارة التربية والتعليم</h3>
+
+    <p>
+        تابع آخر القرارات والمعلومات
+        الرسمية الخاصة بالتعليم.
+    </p>
+
+    <a class="btn btn-primary"
+       style="margin-top:18px;width:100%"
+       href="https://moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        فتح الموقع الرسمي ↗
+    </a>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">📚</div>
+
+    <h3>المكتبة الإلكترونية</h3>
+
+    <p>
+        ابحث عن الكتب والموارد
+        التعليمية الرسمية.
+    </p>
+
+    <a class="btn btn-primary"
+       style="margin-top:18px;width:100%"
+       href="https://ellibrary.moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        فتح المكتبة ↗
+    </a>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">📝</div>
+
+    <h3>النماذج الرسمية</h3>
+
+    <p>
+        الوصول إلى النماذج المنشورة
+        عبر المصادر الرسمية.
+    </p>
+
+    <a class="btn btn-primary"
+       style="margin-top:18px;width:100%"
+       href="https://ellibrary.moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        عرض المصدر ↗
+    </a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     LIBRARY
+================================================== -->
+
+<section id="library" class="page">
+
+<div class="library-hero">
+
+<div>
+
+    <h2>📚 المكتبة الإلكترونية</h2>
+
+    <p>
+        المنصة لا تستضيف الكتب أو ملفات PDF.
+        جميع الروابط هنا توجه الطالب إلى
+        المصادر الرسمية.
+    </p>
+
+</div>
+
+<a class="btn btn-primary"
+   href="https://ellibrary.moe.gov.eg/"
+   target="_blank"
+   rel="noopener">
+    فتح المكتبة الرسمية ↗
+</a>
+
+</div>
+
+
+<div class="section-head">
+
+    <small>OFFICIAL LIBRARY</small>
+
+    <h2>بوابة الكتب والمصادر</h2>
+
+    <p>
+        اختر القسم ثم انتقل إلى المصدر الرسمي.
+    </p>
+
+</div>
+
+
+<div class="library-grid">
+
+
+<div class="card library-card">
+
+    <div>
+
+        <span class="tag">OFFICIAL</span>
+
+        <h3>📚 المكتبة الإلكترونية الرئيسية</h3>
+
+        <p>
+            بوابة وزارة التربية والتعليم للمصادر
+            الإلكترونية والكتب التعليمية.
+        </p>
+
+    </div>
+
+    <a class="btn btn-glass"
+       href="https://ellibrary.moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        دخول المكتبة ↗
+    </a>
+
+</div>
+
+
+<div class="card library-card">
+
+    <div>
+
+        <span class="tag">ثانوي</span>
+
+        <h3>📘 كتب المرحلة الثانوية</h3>
+
+        <p>
+            استخدم البحث داخل المكتبة الرسمية
+            للوصول إلى كتب صفك.
+        </p>
+
+    </div>
+
+    <a class="btn btn-glass"
+       href="https://ellibrary.moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        البحث في المكتبة ↗
+    </a>
+
+</div>
+
+
+<div class="card library-card">
+
+    <div>
+
+        <span class="tag">عربي</span>
+
+        <h3>🖊️ اللغة العربية</h3>
+
+        <p>
+            الوصول إلى مصادر اللغة العربية
+            من المكتبة الرسمية.
+        </p>
+
+    </div>
+
+    <a class="btn btn-glass"
+       href="https://ellibrary.moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        المصدر الرسمي ↗
+    </a>
+
+</div>
+
+
+<div class="card library-card">
+
+    <div>
+
+        <span class="tag">English</span>
+
+        <h3>🔤 اللغة الإنجليزية</h3>
+
+        <p>
+            الوصول إلى الموارد الرسمية
+            الخاصة باللغة الإنجليزية.
+        </p>
+
+    </div>
+
+    <a class="btn btn-glass"
+       href="https://ellibrary.moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        المصدر الرسمي ↗
+    </a>
+
+</div>
+
+
+<div class="card library-card">
+
+    <div>
+
+        <span class="tag">رياضيات</span>
+
+        <h3>📐 الرياضيات</h3>
+
+        <p>
+            ابحث عن الكتب والموارد
+            الرسمية الخاصة بالرياضيات.
+        </p>
+
+    </div>
+
+    <a class="btn btn-glass"
+       href="https://ellibrary.moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        المصدر الرسمي ↗
+    </a>
+
+</div>
+
+
+<div class="card library-card">
+
+    <div>
+
+        <span class="tag">علوم</span>
+
+        <h3>🔬 العلوم</h3>
+
+        <p>
+            الوصول إلى الموارد الرسمية
+            للمواد العلمية.
+        </p>
+
+    </div>
+
+    <a class="btn btn-glass"
+       href="https://ellibrary.moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        المصدر الرسمي ↗
+    </a>
+
+</div>
+
+</div>
+
+
+<div class="section-head">
+    <small>IMPORTANT</small>
+    <h2>ملاحظة</h2>
+</div>
+
+<div class="info">
+
+<p>
+    لا يتم رفع أو تخزين الكتب داخل منصة طالب ثانوي.
+    المنصة تعمل كواجهة وصول منظمة للمصادر الرسمية،
+    وبالتالي عندما تتغير الكتب أو الروابط الرسمية
+    يمكن تحديث الرابط فقط بدل إعادة بناء المنصة.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     EXAMS
+================================================== -->
+
+<section id="exams" class="page">
+
+<div class="section-head">
+
+    <small>EXAM CENTER</small>
+
+    <h2>الامتحانات والنماذج</h2>
+
+    <p>
+        مصادر تدريبية ونماذج رسمية.
+    </p>
+
+</div>
+
+
+<div class="exam-grid">
+
+
+<div class="exam">
+
+    <div class="card-icon">📄</div>
+
+    <h3>نماذج الثانوية</h3>
+
+    <p>
+        الوصول إلى النماذج الاسترشادية
+        من المكتبة الرسمية.
+    </p>
+
+    <a class="btn btn-primary"
+       href="https://ellibrary.moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        فتح النماذج ↗
+    </a>
+
+</div>
+
+
+<div class="exam">
+
+    <div class="card-icon">🖊️</div>
+
+    <h3>نموذج اللغة العربية</h3>
+
+    <p>
+        نموذج منشور عبر المكتبة الإلكترونية
+        التابعة لوزارة التربية والتعليم.
+    </p>
+
+    <a class="btn btn-primary"
+       href="https://ellibrary.moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        فتح المصدر ↗
+    </a>
+
+</div>
+
+
+<div class="exam">
+
+    <div class="card-icon">🌍</div>
+
+    <h3>نماذج المواد المختلفة</h3>
+
+    <p>
+        ابحث داخل المكتبة الرسمية
+        عن المادة والصف المطلوب.
+    </p>
+
+    <a class="btn btn-primary"
+       href="https://ellibrary.moe.gov.eg/"
+       target="_blank"
+       rel="noopener">
+        البحث ↗
+    </a>
+
+</div>
+
+</div>
+
+
+<div class="section-head">
+    <small>STUDY METHOD</small>
+    <h2>استخدم النماذج بطريقة صحيحة</h2>
+</div>
+
+<div class="info">
+
+<div class="info-list">
+
+    <div>① حل النموذج دون الرجوع إلى الإجابة.</div>
+
+    <div>② راجع أخطاءك بعد الانتهاء.</div>
+
+    <div>③ حدد الموضوعات التي تحتاج إلى مراجعة.</div>
+
+    <div>④ ارجع إلى الكتاب أو المصدر الرسمي.</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     SOURCES
+================================================== -->
+
+<section id="sources" class="page">
+
+<div class="section-head">
+
+    <small>OFFICIAL SOURCES</small>
+
+    <h2>المصادر الرسمية</h2>
+
+    <p>
+        روابط الجهات الرسمية المهمة للطالب.
+    </p>
+
+</div>
+
+
+<div class="sources">
+
+
+<div class="source">
+
+<div class="source-info">
+
+    <div class="source-icon">🏛️</div>
+
+    <div>
+        <strong>وزارة التربية والتعليم</strong>
+        <div style="color:var(--muted);font-size:10px">
+            الموقع الرسمي
+        </div>
+    </div>
+
+</div>
+
+<a class="btn btn-glass"
+   href="https://moe.gov.eg/"
+   target="_blank"
+   rel="noopener">
+    زيارة ↗
+</a>
+
+</div>
+
+
+<div class="source">
+
+<div class="source-info">
+
+    <div class="source-icon">📚</div>
+
+    <div>
+        <strong>المكتبة الإلكترونية</strong>
+        <div style="color:var(--muted);font-size:10px">
+            مصادر وزارة التعليم
+        </div>
+    </div>
+
+</div>
+
+<a class="btn btn-glass"
+   href="https://ellibrary.moe.gov.eg/"
+   target="_blank"
+   rel="noopener">
+    زيارة ↗
+</a>
+
+</div>
+
+
+<div class="source">
+
+<div class="source-info">
+
+    <div class="source-icon">💻</div>
+
+    <div>
+        <strong>مصر الرقمية</strong>
+        <div style="color:var(--muted);font-size:10px">
+            الخدمات الرقمية الحكومية
+        </div>
+    </div>
+
+</div>
+
+<a class="btn btn-glass"
+   href="https://digital.gov.eg/"
+   target="_blank"
+   rel="noopener">
+    زيارة ↗
+</a>
+
+</div>
+
+
+<div class="source">
+
+<div class="source-info">
+
+    <div class="source-icon">📡</div>
+
+    <div>
+        <strong>وزارة الاتصالات</strong>
+        <div style="color:var(--muted);font-size:10px">
+            الاتصالات وتكنولوجيا المعلومات
+        </div>
+    </div>
+
+</div>
+
+<a class="btn btn-glass"
+   href="https://mcit.gov.eg/"
+   target="_blank"
+   rel="noopener">
+    زيارة ↗
+</a>
+
+</div>
+
+
+<div class="source">
+
+<div class="source-info">
+
+    <div class="source-icon">🏢</div>
+
+    <div>
+        <strong>مجلس الوزراء</strong>
+        <div style="color:var(--muted);font-size:10px">
+            بوابة الحكومة المصرية
+        </div>
+    </div>
+
+</div>
+
+<a class="btn btn-glass"
+   href="https://www.cabinet.gov.eg/"
+   target="_blank"
+   rel="noopener">
+    زيارة ↗
+</a>
+
+</div>
+
+
+<div class="source">
+
+<div class="source-info">
+
+    <div class="source-icon">🌐</div>
+
+    <div>
+        <strong>منصات التعليم الرسمية</strong>
+        <div style="color:var(--muted);font-size:10px">
+            بوابات التعليم الإلكتروني
+        </div>
+    </div>
+
+</div>
+
+<a class="btn btn-glass"
+   href="https://moe.gov.eg/"
+   target="_blank"
+   rel="noopener">
+    زيارة ↗
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     ABOUT
+================================================== -->
+
+<section id="about" class="page">
+
+<div class="section-head">
+
+    <small>ABOUT</small>
+
+    <h2>عن منصة طالب ثانوي</h2>
+
+    <p>
+        مشروع رقمي تعليمي لطلاب المرحلة الثانوية.
+    </p>
+
+</div>
+
+
+<div class="about-grid">
+
+
+<div class="about-box">
+
+    <h2>🎓 فكرة المشروع</h2>
+
+    <p>
+        إنشاء بوابة رقمية تجمع للطالب أهم
+        الأقسام والروابط التعليمية في مكان واحد،
+        مع التركيز على الوصول إلى المصادر الرسمية
+        بدل تخزين وإعادة نشر الملفات.
+    </p>
+
+    <div class="names">
+
+        <div>🇪🇬 جمهورية مصر العربية</div>
+
+        <div>📍 محافظة السويس</div>
+
+        <div>🏫 إدارة جنوب السويس التعليمية</div>
+
+        <div>🏫 مدرسة جمال عبد الناصر الثانوية بنين</div>
+
+    </div>
+
+</div>
+
+
+<div class="about-box">
+
+    <h2>✨ فريق المشروع</h2>
+
+    <p>
+        تم تصميم المنصة لتكون سريعة،
+        متجاوبة مع الهاتف، ومنظمة بحيث
+        يستطيع الطالب الوصول إلى القسم
+        المطلوب بأقل عدد من الخطوات.
+    </p>
+
+    <div class="names">
+
+        <div>
+            <strong>إنشاء:</strong>
+            محمد السيد مختار
+        </div>
+
+        <div>
+            <strong>مشاركة:</strong>
+            محمد خالد راتب
+        </div>
+
+        <div>
+            <strong>إشراف:</strong>
+            أ / لبنى بهاء الدين
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<div class="section-head">
+    <small>PLATFORM PRINCIPLES</small>
+    <h2>مبادئ المنصة</h2>
+</div>
+
+
+<div class="info">
+
+<div class="info-list">
+
+    <div>⚡ سرعة الوصول للمعلومة.</div>
+
+    <div>📱 تصميم مناسب للهاتف.</div>
+
+    <div>🔗 الاعتماد على المصادر الرسمية.</div>
+
+    <div>🚫 عدم تخزين ملفات الكتب داخل الموقع.</div>
+
+    <div>🎓 التركيز على طلاب المرحلة الثانوية.</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <strong>طالب ثانوي</strong>
+
+    <br>
+
+    المنصة الرقمية لطلاب المرحلة الثانوية
+
+    <br>
+
+    جمهورية مصر العربية — محافظة السويس
+
+    <br><br>
+
+    إنشاء <strong>محمد السيد مختار</strong>
+    — محمد خالد راتب
+    — تحت إشراف <strong>أ / لبنى بهاء الدين</strong>
+
+    <br>
+
+    © 2026 طالب ثانوي
+
+</footer>
+
+</main>
+
+
+<!-- ================= MOBILE NAV ================= -->
+
+<nav class="mobile-nav">
+
+<button class="active" onclick="go('home',this)">
+    <i>⌂</i>
+    الرئيسية
+</button>
+
+<button onclick="go('classes',this)">
+    <i>🎓</i>
+    الصفوف
+</button>
+
+<button onclick="go('library',this)">
+    <i>📚</i>
+    المكتبة
+</button>
+
+<button onclick="go('baccalaureate',this)">
+    <i>🏛️</i>
+    البكالوريا
+</button>
+
+<button onclick="go('sources',this)">
+    <i>🌐</i>
+    المصادر
+</button>
+
+</nav>
+
+
+<script>
+
+/* ==================================================
+   PAGE NAVIGATION
+================================================== */
+
+function go(page,button){
+
+    document.querySelectorAll('.page').forEach(function(p){
+        p.classList.remove('active');
+    });
+
+    const target=document.getElementById(page);
+
+    if(target){
+        target.classList.add('active');
+    }
+
+    document.querySelectorAll('.top-nav button,.mobile-nav button')
+    .forEach(function(btn){
+        btn.classList.remove('active');
+    });
+
+    if(button){
+        button.classList.add('active');
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+
+    history.replaceState(null,'','#'+page);
+}
+
+
+/* ==================================================
+   CLASS SYSTEM
+================================================== */
+
+function openClass(type){
+
+    const box=document.getElementById('classContent');
+
+    let html='';
+
+    if(type==='first'){
+
+        html=`
+
+        <div class="info">
+
+            <h3>🎓 أولى ثانوي</h3>
+
+            <p>
+                مرحبًا بك في قسم الصف الأول الثانوي.
+                يمكنك استخدام المكتبة الرسمية للوصول
+                إلى الكتب والمصادر الخاصة بالصف.
+            </p>
+
+            <div class="grid" style="margin-top:20px">
+
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>المكتبة</h3>
+                    <p>الوصول إلى المصادر الرسمية.</p>
+                    <button class="btn btn-primary"
+                            style="margin-top:15px;width:100%"
+                            onclick="go('library')">
+                        فتح المكتبة
+                    </button>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📝</div>
+                    <h3>الامتحانات</h3>
+                    <p>مصادر النماذج والتدريب.</p>
+                    <button class="btn btn-primary"
+                            style="margin-top:15px;width:100%"
+                            onclick="go('exams')">
+                        فتح الامتحانات
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }
+
+
+    if(type==='second'){
+
+        html=`
+
+        <div class="info">
+
+            <h3>🎓 ثانية ثانوي</h3>
+
+            <p>
+                اختر المسار المناسب لك.
+            </p>
+
+            <div class="path-grid" style="margin-top:20px">
+
+                <div class="path">
+
+                    <h3>🔬 علمي</h3>
+
+                    <p>
+                        قسم مخصص للطلاب في المسار العلمي.
+                    </p>
+
+                    <div class="subjects">
+                        <span class="subject">رياضيات</span>
+                        <span class="subject">فيزياء</span>
+                        <span class="subject">كيمياء</span>
+                    </div>
+
+                    <button class="btn btn-primary"
+                            style="margin-top:17px;width:100%"
+                            onclick="go('library')">
+                        مصادر المسار
+                    </button>
+
+                </div>
+
+
+                <div class="path">
+
+                    <h3>📖 أدبي</h3>
+
+                    <p>
+                        قسم مخصص للطلاب في المسار الأدبي.
+                    </p>
+
+                    <div class="subjects">
+                        <span class="subject">تاريخ</span>
+                        <span class="subject">جغرافيا</span>
+                        <span class="subject">لغات</span>
+                    </div>
+
+                    <button class="btn btn-primary"
+                            style="margin-top:17px;width:100%"
+                            onclick="go('library')">
+                        مصادر المسار
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }
+
+
+    if(type==='third'){
+
+        html=`
+
+        <div class="info">
+
+            <h3>🎓 ثالثة ثانوي</h3>
+
+            <p>
+                اختر الشعبة الدراسية المناسبة لك.
+            </p>
+
+            <div class="path-grid" style="margin-top:20px">
+
+                <div class="path">
+
+                    <h3>🧬 علمي علوم</h3>
+
+                    <div class="subjects">
+                        <span class="subject">أحياء</span>
+                        <span class="subject">كيمياء</span>
+                        <span class="subject">فيزياء</span>
+                    </div>
+
+                    <button class="btn btn-primary"
+                            style="margin-top:17px;width:100%"
+                            onclick="go('library')">
+                        المصادر
+                    </button>
+
+                </div>
+
+
+                <div class="path">
+
+                    <h3>⚙️ علمي رياضة</h3>
+
+                    <div class="subjects">
+                        <span class="subject">رياضيات</span>
+                        <span class="subject">فيزياء</span>
+                        <span class="subject">كيمياء</span>
+                    </div>
+
+                    <button class="btn btn-primary"
+                            style="margin-top:17px;width:100%"
+                            onclick="go('library')">
+                        المصادر
+                    </button>
+
+                </div>
+
+
+                <div class="path">
+
+                    <h3>📖 أدبي</h3>
+
+                    <div class="subjects">
+                        <span class="subject">تاريخ</span>
+                        <span class="subject">جغرافيا</span>
+                        <span class="subject">فلسفة</span>
+                    </div>
+
+                    <button class="btn btn-primary"
+                            style="margin-top:17px;width:100%"
+                            onclick="go('library')">
+                        المصادر
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }
+
+
+    box.innerHTML=html;
+
+    box.style.display='block';
+
+    setTimeout(function(){
+
+        box.scrollIntoView({
+            behavior:'smooth',
+            block:'start'
+        });
+
+    },50);
+
+}
+
+
+/* ==================================================
+   HASH SUPPORT
+================================================== */
+
+function loadHash(){
+
+    const hash=location.hash.replace('#','');
+
+    if(hash && document.getElementById(hash)){
+        go(hash);
+    }
+
+}
+
+window.addEventListener('load',loadHash);
+
+window.addEventListener('hashchange',loadHash);
+
+
+/* ==================================================
+   EXTERNAL LINKS
+================================================== */
+
+document.querySelectorAll('a[target="_blank"]').forEach(function(link){
+
+    link.addEventListener('click',function(){
+
+        this.setAttribute(
+            'rel',
+            'noopener noreferrer'
+        );
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
